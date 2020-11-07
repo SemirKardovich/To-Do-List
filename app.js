@@ -82,12 +82,15 @@ function filterTasks(){
 // Clear tasks function
 
 function clearTasks(){
-    do {
-        taskList.firstChild.remove();
-    }while (taskList.firstChild);
-
-    // Clear tasks from local storage
-    clearTasksFromLS();
+    if(confirm('Are You Sure?')){
+        do {
+            taskList.firstChild.remove();
+        }while (taskList.firstChild);
+    
+        // Clear tasks from local storage
+        clearTasksFromLS();
+    }
+    
 }
 
 // LOCAL STORAGE FUNCTIONS
