@@ -46,6 +46,7 @@ function addTask(e){
     }
     // Add task in local storage
     addTaskInLS(taskInput.value);
+    //Clear task input
     taskInput.value = '';
 };
 
@@ -57,7 +58,7 @@ function deleteTask(e){
             e.target.parentElement.parentElement.remove();
             
             // Delete from LS
-            deleteTaskFromLS(e.target.parentElement.parentElement)
+            deleteTaskFromLS(e.target.parentElement.parentElement.innerText.trim())
         }
     }
 };
@@ -90,8 +91,7 @@ function clearTasks(){
         // Clear tasks from local storage
         clearTasksFromLS();
     }
-    
-}
+};
 
 // LOCAL STORAGE FUNCTIONS
 
@@ -137,15 +137,12 @@ function deleteTaskFromLS(taskItem){
     }else {
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
-    tasks.forEach(function(task, index){
-        if(taskItem.innerText == task){
-            console.log('yes')
-            tasks.splice(index, 1)
-        }else {
-            console.log('No')
-        }
+    
+    tasks.forEach((task, index) => {
+      if(task == taskItem){
+         tasks.splice(index, 1);
+      }
     });
-
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
