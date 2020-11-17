@@ -14,6 +14,7 @@ I am simulating a database with local storage so that every task gets saved unti
 
 * HTML
 * Bootstrap
+* Font Awesome
 * Java Script
 * Local storage
 * Visual Studio Code
